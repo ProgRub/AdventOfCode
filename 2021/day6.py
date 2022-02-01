@@ -1,38 +1,47 @@
 import common
 
 
+def fishCalculation(fish, daysToSimulate):
+    amountOfFish = {
+        0: fish.count(0),
+        1: fish.count(1),
+        2: fish.count(2),
+        3: fish.count(3),
+        4: fish.count(4),
+        5: fish.count(5),
+        6: fish.count(6),
+        7: fish.count(7),
+        8: fish.count(8)
+    }
+    for day in range(daysToSimulate):
+        amountOfFishNextDay = {
+            0: amountOfFish[1],
+            1: amountOfFish[2],
+            2: amountOfFish[3],
+            3: amountOfFish[4],
+            4: amountOfFish[5],
+            5: amountOfFish[6],
+            6: amountOfFish[7],
+            7: amountOfFish[8],
+            8: amountOfFish[0]
+        }
+        amountOfFishNextDay[6] += amountOfFish[0]
+        amountOfFish = amountOfFishNextDay
+    return sum(amountOfFish.values())
+
+
 def part1():
     inputValues = common.getInputOfDay(6)
     DAYS_TO_SIMULATE = 80
     fish = common.getLineOfNumbersAsInts(inputValues[0], ',')
-    for _ in range(DAYS_TO_SIMULATE):
-        for index in range(len(fish)):
-            if fish[index] == 0:
-                fish[index] = 6
-                fish.append(8)
-            else:
-                fish[index] -= 1
-    return len(fish)
+    return fishCalculation(fish,DAYS_TO_SIMULATE)
 
 
 def part2():
     inputValues = common.getInputOfDay(6)
     DAYS_TO_SIMULATE = 256
-    CHUNK_SIZE=5
     totalFish = common.getLineOfNumbersAsInts(inputValues[0], ',')
-    chunksOfFish = [totalFish[x:x + CHUNK_SIZE] for x in range(0, len(totalFish), CHUNK_SIZE)]
-    for _ in range(DAYS_TO_SIMULATE):
-        for chunkIndex in range(len(chunksOfFish)):
-            for index in range(len(chunksOfFish[chunkIndex])):
-                if chunksOfFish[chunkIndex][index] == 0:
-                    chunksOfFish[chunkIndex][index] = 6
-                    chunksOfFish[chunkIndex].append(8)
-                else:
-                    chunksOfFish[chunkIndex][index] -= 1
-    sum = 0
-    for chunk in chunksOfFish:
-        sum += len(chunk)
-    return sum
+    return fishCalculation(totalFish,DAYS_TO_SIMULATE)
 
 
 def main():
