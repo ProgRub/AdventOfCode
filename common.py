@@ -6,3 +6,12 @@ def getInputOfDay(day):
 def getLineOfNumbersAsInts(line, separator):
     return [int(number) for number in line.split(separator)]
 
+
+def getGridFromLinesOfUninterruptedInts(lines):
+    grid = []
+    for line in lines:
+        row = []
+        for character in line:
+            row += [int(character)]
+        grid += [row]
+    return grid

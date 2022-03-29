@@ -1,19 +1,9 @@
 import common
 
 
-def getGridFromLinesOfUninterruptedInts(lines):
-    grid = []
-    for line in lines:
-        row = []
-        for character in line:
-            row += [int(character)]
-        grid += [row]
-    return grid
-
-
 def part1():
     inputValues = common.getInputOfDay(9)
-    grid = getGridFromLinesOfUninterruptedInts(inputValues)
+    grid = common.getGridFromLinesOfUninterruptedInts(inputValues)
     lowPoints = []
     for rowIndex in range(len(grid)):
         for columnIndex in range(len(grid[rowIndex])):
@@ -34,7 +24,7 @@ def part1():
 
 
 def searchBasin(grid, rowIndex, columnIndex, visitedNodes, rowLength, columnLength):
-    if rowIndex < 0 or columnIndex < 0 or rowIndex >= rowLength or columnIndex >= columnLength or grid[rowIndex][columnIndex] == 9 or (rowIndex,columnIndex) in visitedNodes:
+    if rowIndex < 0 or columnIndex < 0 or rowIndex >= rowLength or columnIndex >= columnLength or grid[rowIndex][columnIndex] == 9 or (rowIndex, columnIndex) in visitedNodes:
         return
     visitedNodes.append((rowIndex, columnIndex))
     searchBasin(grid, rowIndex - 1, columnIndex, visitedNodes, rowLength, columnLength)
@@ -45,7 +35,7 @@ def searchBasin(grid, rowIndex, columnIndex, visitedNodes, rowLength, columnLeng
 
 def part2():
     inputValues = common.getInputOfDay(9)
-    grid = getGridFromLinesOfUninterruptedInts(inputValues)
+    grid = common.getGridFromLinesOfUninterruptedInts(inputValues)
     basins = []
     lowPoints = []
     for rowIndex in range(len(grid)):
