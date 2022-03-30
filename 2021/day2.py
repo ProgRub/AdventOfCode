@@ -2,7 +2,7 @@ import common
 
 
 def part1():
-    inputValues = common.getInputOfDay(2)
+    inputValues = common.getInputOfDay()
     horizontal = 0
     depth = 0
     for value in inputValues:
@@ -17,7 +17,7 @@ def part1():
 
 
 def part2():
-    inputValues = common.getInputOfDay(2)
+    inputValues = common.getInputOfDay()
     horizontal = 0
     aim = 0
     depth = 0

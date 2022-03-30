@@ -3,7 +3,7 @@ import statistics
 
 
 def part1():
-    inputValues = common.getInputOfDay(7)
+    inputValues = common.getInputOfDay()
     crabPositions = common.getLineOfNumbersAsInts(inputValues[0], ',')
     median = statistics.median(crabPositions)
     totalAmountOfFuel = 0
@@ -13,7 +13,7 @@ def part1():
 
 
 def part2():
-    inputValues = common.getInputOfDay(7)
+    inputValues = common.getInputOfDay()
     crabPositions = common.getLineOfNumbersAsInts(inputValues[0], ',')
     mean = int(statistics.mean(crabPositions))
     totalAmountOfFuel = 0

@@ -5,7 +5,7 @@ MAX_VALUE = 999
 
 
 def part1():
-    inputValues = common.getInputOfDay(5)
+    inputValues = common.getInputOfDay()
     lineSegments = [line.split(" -> ") for line in inputValues]
     lineSegmentsAsPoints = [
         [common.getLineOfNumbersAsInts(lineSegment[0], ','), common.getLineOfNumbersAsInts(lineSegment[1], ',')] for
@@ -117,7 +117,7 @@ def part2():
     #         if number >= 2:
     #             atLeast2PointsOverlap += 1
     # return atLeast2PointsOverlap
-    segments = [line.replace(' -> ', ',') for line in common.getInputOfDay(5)]
+    segments = [line.replace(' -> ', ',') for line in common.getInputOfDay()]
 
     straight, diagonal = [], []
     for line in segments:

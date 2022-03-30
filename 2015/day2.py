@@ -2,7 +2,7 @@ import common
 
 
 def part1():
-    inputValues = common.getInputOfDay(2)
+    inputValues = common.getInputOfDay()
     totalWrappingPaper = 0
     for box in inputValues:
         measures = box.split('x')
@@ -16,7 +16,7 @@ def part1():
 
 
 def part2():
-    inputValues = common.getInputOfDay(2)
+    inputValues = common.getInputOfDay()
     totalRibbon = 0
     for box in inputValues:
         measures = box.split('x')

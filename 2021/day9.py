@@ -2,7 +2,7 @@ import common
 
 
 def part1():
-    inputValues = common.getInputOfDay(9)
+    inputValues = common.getInputOfDay()
     grid = common.getGridFromLinesOfUninterruptedInts(inputValues)
     lowPoints = []
     for rowIndex in range(len(grid)):
@@ -34,7 +34,7 @@ def searchBasin(grid, rowIndex, columnIndex, visitedNodes, rowLength, columnLeng
 
 
 def part2():
-    inputValues = common.getInputOfDay(9)
+    inputValues = common.getInputOfDay()
     grid = common.getGridFromLinesOfUninterruptedInts(inputValues)
     basins = []
     lowPoints = []

@@ -2,7 +2,7 @@ import common
 
 
 def part1():
-    inputValues = common.getInputOfDay(1)
+    inputValues = common.getInputOfDay()
     counter = 0
     for parenthesis in inputValues[0]:
         if parenthesis == '(':
@@ -13,7 +13,7 @@ def part1():
 
 
 def part2():
-    inputValues = common.getInputOfDay(1)
+    inputValues = common.getInputOfDay()
     counter = 0
     for index in range(len(inputValues[0])):
         parenthesis = inputValues[0][index]

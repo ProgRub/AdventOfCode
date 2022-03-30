@@ -2,7 +2,7 @@ import common
 
 
 def part1():
-    inputValues = common.getInputOfDay(3)
+    inputValues = common.getInputOfDay()
     lenBinaries = len(inputValues[0])
     gamma = '0' * lenBinaries
     epsilon = '0' * lenBinaries
@@ -29,7 +29,7 @@ def part1():
 
 
 def part2():
-    inputValues = common.getInputOfDay(3)
+    inputValues = common.getInputOfDay()
     lenBinaries = len(inputValues[0])
     oxygen = '0'
     co2 = '0'

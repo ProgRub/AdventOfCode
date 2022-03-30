@@ -2,7 +2,7 @@ import common
 
 
 def part1():
-    inputValues = common.getInputOfDay(10)
+    inputValues = common.getInputOfDay()
     points = {
         ')': 3,
         ']': 57,
@@ -28,7 +28,7 @@ def part1():
 
 
 def part2():
-    inputValues = common.getInputOfDay(10)
+    inputValues = common.getInputOfDay()
     startingChars = ['(', '[', '{', '<']
     endingChars = [')', ']', '}', '>']
     corruptedLines = []

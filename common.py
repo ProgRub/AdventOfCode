@@ -1,4 +1,11 @@
-def getInputOfDay(day):
+import inspect
+import os.path
+import sys
+
+
+def getInputOfDay():
+    filename = os.path.basename(inspect.getsourcefile(sys._getframe(1)))
+    day = filename[3:filename.index('.')]
     with open("inputs\day{}.txt".format(day)) as f:
         return [line.strip() for line in f if line.strip()]
 
