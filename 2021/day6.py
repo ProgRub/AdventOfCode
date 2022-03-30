@@ -31,14 +31,14 @@ def fishCalculation(fish, daysToSimulate):
 
 
 def part1():
-    inputValues = common.getInputOfDay()
+    inputValues = common.getInput()
     DAYS_TO_SIMULATE = 80
     fish = common.getLineOfNumbersAsInts(inputValues[0], ',')
     return fishCalculation(fish,DAYS_TO_SIMULATE)
 
 
 def part2():
-    inputValues = common.getInputOfDay()
+    inputValues = common.getInput()
     DAYS_TO_SIMULATE = 256
     totalFish = common.getLineOfNumbersAsInts(inputValues[0], ',')
     return fishCalculation(totalFish,DAYS_TO_SIMULATE)

@@ -3,7 +3,7 @@ import os.path
 import sys
 
 
-def getInputOfDay():
+def getInput():
     filename = os.path.basename(inspect.getsourcefile(sys._getframe(1)))
     day = filename[3:filename.index('.')]
     with open("inputs\day{}.txt".format(day)) as f:

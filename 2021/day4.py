@@ -55,7 +55,7 @@ def getBingoBoardsMarks(bingoBoards):
 
 
 def part1():
-    inputValues = common.getInputOfDay()
+    inputValues = common.getInput()
     calledNumbers = common.getLineOfNumbersAsInts(inputValues[0], ',')
     bingoBoards = getBingoBoards(inputValues)
     bingoBoardsMarks = getBingoBoardsMarks(bingoBoards)
@@ -77,7 +77,7 @@ def part1():
 
 
 def part2():
-    inputValues = common.getInputOfDay()
+    inputValues = common.getInput()
     calledNumbers = common.getLineOfNumbersAsInts(inputValues[0], ',')
     bingoBoards = getBingoBoards(inputValues)
     bingoBoardsMarks = getBingoBoardsMarks(bingoBoards)

@@ -2,7 +2,7 @@ import common
 
 
 def part1():
-    inputValues = common.getInputOfDay()
+    inputValues = common.getInput()
     directions = inputValues[0]
     indexX = 0
     indexY = 0
@@ -25,7 +25,7 @@ def part1():
 
 
 def part2():
-    inputValues = common.getInputOfDay()
+    inputValues = common.getInput()
     directions = inputValues[0]
     indexXRealSanta = 0
     indexYRealSanta = 0

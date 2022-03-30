@@ -4,7 +4,7 @@ import numpy as np
 GRID_SIZE = 10
 totalFlashes = 0
 
-inputValues = common.getInputOfDay()
+inputValues = common.getInput()
 grid = np.array([list(map(int, r)) for r in inputValues])
 def increaseEnergy(x, y, matrix):
     bottomBound = len(grid)
@@ -73,7 +73,7 @@ def updateSurroundingCellsAfterFlash(grid, rowIndex, columnIndex):
 
 
 def part1():
-    inputValues = common.getInputOfDay()
+    inputValues = common.getInput()
     grid = common.getGridFromLinesOfUninterruptedInts(inputValues)
     STEPS = 100
     for step in range(STEPS):
@@ -89,7 +89,7 @@ def part1():
 
 
 def part2():
-    inputValues = common.getInputOfDay(11)
+    inputValues = common.getInput(11)
     return 0
 
 

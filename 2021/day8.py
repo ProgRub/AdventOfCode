@@ -2,7 +2,7 @@ import common
 
 
 def part1():
-    inputValues = common.getInputOfDay()
+    inputValues = common.getInput()
     uniqueDigits = 0
     for line in inputValues:
         outputValues = line.split(" | ")[1]
@@ -54,7 +54,7 @@ def getDigitSequences(inputs):
 
 
 def part2():
-    inputValues = common.getInputOfDay()
+    inputValues = common.getInput()
     sum = 0
     for line in inputValues:
         split = line.split(" | ")

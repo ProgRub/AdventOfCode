@@ -2,7 +2,7 @@ import common
 
 
 def part1():
-    inputValues = common.getInputOfDay()
+    inputValues = common.getInput()
     increaseCounter = 0
     for index in range(1, len(inputValues)):
         if int(inputValues[index]) > int(inputValues[index - 1]):
@@ -11,7 +11,7 @@ def part1():
 
 
 def part2():
-    inputValues = common.getInputOfDay()
+    inputValues = common.getInput()
     increaseCounter = 0
     for index in range(3, len(inputValues)):
         if int(inputValues[index]) > int(inputValues[index - 3]):
