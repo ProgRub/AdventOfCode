@@ -22,11 +22,28 @@ def part1():
 
 def part2():
     inputValues = common.getInput()
-    return inputValues
+    niceStrings = 0
+    for string in inputValues:
+    # for string in ["qjhvhtzxzqqjkmpb","xxyxx","uurcxstgmygtbstg","ieodomkazucvgmuy"]:
+        pairs = []
+        for index in range(len(string) - 1):
+            pairs += [string[index] + string[index + 1]]
+        pairOfTwoLetters = False
+        letterSandwich = False
+        for pairIndex in range(len(pairs) - 1):
+            if pairs[pairIndex][0] == pairs[pairIndex][1] and (pairs[pairIndex][0] == pairs[pairIndex + 1][1] or (pairIndex>0 and pairs[pairIndex][0] == pairs[pairIndex - 1][0])):
+                pairOfTwoLetters = False
+            if pairs[pairIndex] in pairs[pairIndex + 1:]:
+                pairOfTwoLetters = True
+            if pairs[pairIndex] == pairs[pairIndex + 1][::-1]:
+                letterSandwich += True
+        if pairOfTwoLetters and letterSandwich:
+            niceStrings += 1
+    return niceStrings
 
 
 def main():
-    print(part1())
+    print(part2())
 
 
 if __name__ == "__main__":
