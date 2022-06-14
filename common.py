@@ -1,24 +1,24 @@
 import inspect
 import os.path
 import sys
+import numpy as np
 
 
 def getInput():
     filename = os.path.basename(inspect.getsourcefile(sys._getframe(1)))
     day = filename[3:filename.index('.')]
     with open("inputs\day{}.txt".format(day)) as f:
-        return [line.strip() for line in f if line.strip()]
+        return np.array([line.strip() for line in f if line.strip()])
 
 
 def getLineOfNumbersAsInts(line, separator):
-    return [int(number) for number in line.split(separator)]
+    return np.array([int(number) for number in line.split(separator)])
 
 
 def getGridFromLinesOfUninterruptedInts(lines):
-    grid = []
+    grid = np.empty((len(lines), len(lines[0])))
+    index = 0
     for line in lines:
-        row = []
-        for character in line:
-            row += [int(character)]
-        grid += [row]
+        grid[index] = np.array([int(character) for character in line])
+        index += 1
     return grid
