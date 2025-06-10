@@ -1,9 +1,14 @@
+import sys
+
+# setting path
+sys.path.append("..\\AdventOfCode")
+
+# importing
+import common
 from dataclasses import dataclass
 from enum import Enum
 
 import numpy as np
-
-import common
 
 
 class InstructionType(Enum):

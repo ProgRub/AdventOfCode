@@ -5,9 +5,6 @@ sys.path.append("..\\AdventOfCode")
 
 # importing
 import common
-
-sys.path.append(".\\2015")
-
 import numpy as np
 from dataclasses import dataclass
 from enum import Enum
