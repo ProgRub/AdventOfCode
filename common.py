@@ -5,9 +5,10 @@ import numpy as np
 
 
 def getInput():
+    directory = os.path.dirname(inspect.getsourcefile(sys._getframe(1)))
     filename = os.path.basename(inspect.getsourcefile(sys._getframe(1)))
     day = filename[3:filename.index('.')]
-    with open("inputs\day{}.txt".format(day)) as f:
+    with open(os.path.join(directory, "inputs", "day{}.txt").format(day)) as f:
         return np.array([line.strip() for line in f if line.strip()])
 
 
