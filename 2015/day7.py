@@ -204,12 +204,11 @@ def part1():
 
 
 def part2():
-    inputValues = common.getInput()
-    return inputValues
+    return part1()
 
 
 def main():
-    print(part1())
+    print(part2())
 
 
 if __name__ == "__main__":
