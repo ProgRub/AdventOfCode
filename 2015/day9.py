@@ -104,9 +104,9 @@ def getAllCourses(inputValues, lookForShortestCourse: bool):
         connections += [Connection.fromConnection(conn.end, conn.start, conn.distance)]
     distinctLocations = len(set([x.start for x in connections]))
     courses = []
-    for connection in connections:
+    for conn in connections:
         course = plotBestCourse(
-            connection, connections, distinctLocations, lookForShortestCourse
+            conn, connections, distinctLocations, lookForShortestCourse
         )
         # Only add to the list of courses if it's valid (it needs to visit each location, but only once)
         if len(course.locations) == distinctLocations:
