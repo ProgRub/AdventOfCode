@@ -20,22 +20,22 @@ def part1():
         stringsLength += len(line)
     return totalLength - stringsLength
 
+
 def encode(line: str) -> str:
-    encodedLine = ''
-    aux = line[1:len(line) - 1]
-    for char in line[1:len(line) - 1]:
+    encodedLine = ""
+    for char in line[1 : len(line) - 1]:
         match char:
             case "\\":
                 encodedLine += "\\" + char
-            case "\"":
-                encodedLine += "\\\""
+            case '"':
+                encodedLine += '\\"'
             case _:
                 encodedLine += char
-    return f"\"\\\"{encodedLine}\\\"\""
+    return f'"\\"{encodedLine}\\""'
 
 
 def part2():
-    inputValues = common.getInput()    
+    inputValues = common.getInput()
     totalLength = 0
     stringsLength = 0
     for line in inputValues:
@@ -43,8 +43,9 @@ def part2():
         encodedLine = encode(line)
         print(f"{line}: {len(line)}")
         print(f"{encodedLine}: {len(encodedLine)}")
-        stringsLength += len(encodedLine) 
-    return stringsLength - totalLength 
+        stringsLength += len(encodedLine)
+    return stringsLength - totalLength
+
 
 def main():
     print(part2())
