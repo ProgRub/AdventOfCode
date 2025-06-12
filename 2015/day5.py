@@ -6,6 +6,7 @@ sys.path.append("..\\AdventOfCode")
 # importing
 import common
 
+
 def part1():
     inputValues = common.getInput()
     niceStrings = 0
@@ -14,10 +15,10 @@ def part1():
         twoLettersInARow = False
         if "ab" in string or "cd" in string or "pq" in string or "xy" in string:
             continue
-        for index in range(len(string)):
-            if string[index] == 'a' or string[index] == 'e' or string[index] == 'i' or string[index] == 'o' or string[index] == 'u':
+        for index, char in enumerate(string):
+            if char == "a" or char == "e" or char == "i" or char == "o" or char == "u":
                 amountOfVowels += 1
-            if index < len(string) - 1 and string[index + 1] == string[index]:
+            if index < len(string) - 1 and string[index + 1] == char:
                 twoLettersInARow = True
         if amountOfVowels >= 3 and twoLettersInARow:
             niceStrings += 1
@@ -29,18 +30,20 @@ def part2():
     inputValues = common.getInput()
     niceStrings = 0
     for string in inputValues:
-    # for string in ["qjhvhtzxzqqjkmpb","xxyxx","uurcxstgmygtbstg","ieodomkazucvgmuy"]:
         pairs = []
-        for index in range(len(string) - 1):
-            pairs += [string[index] + string[index + 1]]
+        for index, char in enumerate(string[: len(string) - 1]):
+            pairs += [char + string[index + 1]]
         pairOfTwoLetters = False
         letterSandwich = False
-        for pairIndex in range(len(pairs) - 1):
-            if pairs[pairIndex][0] == pairs[pairIndex][1] and (pairs[pairIndex][0] == pairs[pairIndex + 1][1] or (pairIndex>0 and pairs[pairIndex][0] == pairs[pairIndex - 1][0])):
+        for pairIndex, pair in enumerate(pairs[: len(pairs) - 1]):
+            if pair[0] == pair[1] and (
+                pair[0] == pairs[pairIndex + 1][1]
+                or (pairIndex > 0 and pair[0] == pairs[pairIndex - 1][0])
+            ):
                 pairOfTwoLetters = False
-            if pairs[pairIndex] in pairs[pairIndex + 1:]:
+            if pair in pairs[pairIndex + 1 :]:
                 pairOfTwoLetters = True
-            if pairs[pairIndex] == pairs[pairIndex + 1][::-1]:
+            if pair == pairs[pairIndex + 1][::-1]:
                 letterSandwich += True
         if pairOfTwoLetters and letterSandwich:
             niceStrings += 1
