@@ -1,4 +1,4 @@
 # AdventOfCode
 
-This is my solutions to all the advent of code problems.<br>
+These are my solutions to all the Advent of Code problems.<br>
 <a>adventofcode.com</a>
