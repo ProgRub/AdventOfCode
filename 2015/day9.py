@@ -53,7 +53,10 @@ class Course:
     # Determines if he can make this connection based on the current course
     # It can only go to each location ONCE
     def canTravel(self, connection: Connection):
-        return connection.start == self.locations[-1] and connection.end not in self.locations
+        return (
+            connection.start == self.locations[-1]
+            and connection.end not in self.locations
+        )
 
     def __str__(self):
         return f"{' -> '.join(self.locations)}: {self.totalDistance}"
@@ -63,12 +66,12 @@ class Course:
 def plotBestCourse(
     firstConnection: Connection,
     connections: list[Connection],
-    courseLength: int, # param that determines what length the course needs to be (needs to visit every location, but only once)
-    lookForShortestCourse: bool, #param that determines if we want the shortest or longest course possible
+    courseLength: int,  # param that determines what length the course needs to be (needs to visit every location, but only once)
+    lookForShortestCourse: bool,  # param that determines if we want the shortest or longest course possible
 ) -> Course:
     course = Course()
     course.addLocation(firstConnection)
-    startingPoint = course.locations[-1] 
+    startingPoint = course.locations[-1]
     # Need to make a copy because remove functions is in-place
     copy = connections.copy()
     copy.remove(firstConnection)
@@ -82,8 +85,12 @@ def plotBestCourse(
             filter(lambda x: x.start == startingPoint and course.canTravel(x), copy)
         )
         try:
-            course.addLocation(filteredList[0]) # Since the list is ordered we know the first element is the best possible connection
-            startingPoint = course.locations[-1] # Update the starting point for next cycle
+            course.addLocation(
+                filteredList[0]
+            )  # Since the list is ordered we know the first element is the best possible connection
+            startingPoint = course.locations[
+                -1
+            ]  # Update the starting point for next cycle
         except IndexError:
             # If there was an index error then there wasn't a possible connection, we leave the loop
             break
