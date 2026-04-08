@@ -1,4 +1,4 @@
-import common
+from common import common
 from collections import Counter
 
 MAX_VALUE = 999

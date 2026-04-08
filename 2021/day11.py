@@ -1,4 +1,4 @@
-import common
+from common import common
 import numpy as np
 
 GRID_SIZE = 10

@@ -6,7 +6,7 @@ import sys
 sys.path.append("..\\AdventOfCode")
 
 # importing
-import common
+from common import common
 
 def part1():
     inputValues = common.getInput()

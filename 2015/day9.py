@@ -4,7 +4,7 @@ import sys
 sys.path.append("..\\AdventOfCode")
 
 # importing
-import common
+from common import common
 from dataclasses import dataclass
 
 

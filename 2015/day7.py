@@ -4,7 +4,7 @@ import sys
 sys.path.append("..\\AdventOfCode")
 
 # importing
-import common
+from common import common
 import numpy as np
 from dataclasses import dataclass
 from enum import Enum

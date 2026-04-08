@@ -17,7 +17,7 @@ def createFiles(startYear, endYear):
             textFile.close()
 
             pythonFile = open(pythonFilename, "w")
-            pythonFile.write("import common\n\n\n")
+            pythonFile.write("from common import common\n\n\n")
             pythonFile.write("def part1():\n    inputValues = common.getInput()\n    return inputValues\n\n\n")
             pythonFile.write("def part2():\n    inputValues = common.getInput()\n    return inputValues\n\n\n")
             pythonFile.write("def main():\n    print(part1())\n\n\n")

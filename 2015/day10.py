@@ -4,7 +4,7 @@ import sys
 sys.path.append("..\\AdventOfCode")
 
 # importing
-import common
+from common import common
 
 
 # A function that generates the next 'Look-and-say' sequence based on the one received

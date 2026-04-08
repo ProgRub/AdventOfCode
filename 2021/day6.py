@@ -1,4 +1,4 @@
-import common
+from common import common
 
 
 def fishCalculation(fish, daysToSimulate):

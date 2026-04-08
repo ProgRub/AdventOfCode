@@ -1,4 +1,4 @@
-import common
+from common import common
 
 BINGO_BOARD_SIZE = 5
 
