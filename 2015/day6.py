@@ -1,9 +1,3 @@
-import sys
-
-# setting path
-sys.path.append("..\\AdventOfCode")
-
-# importing
 from common import common
 from dataclasses import dataclass
 from enum import Enum

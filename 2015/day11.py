@@ -1,8 +1,3 @@
-import sys
-
-# setting path
-sys.path.append("..")
-# importing
 from common import common
 from itertools import pairwise
 

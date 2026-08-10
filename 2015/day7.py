@@ -1,9 +1,3 @@
-import sys
-
-# setting path
-sys.path.append("..\\AdventOfCode")
-
-# importing
 from common import common
 import numpy as np
 from dataclasses import dataclass

@@ -1,11 +1,4 @@
 import hashlib
-
-import sys
-
-# setting path
-sys.path.append("..\\AdventOfCode")
-
-# importing
 from common import common
 
 def part1():
