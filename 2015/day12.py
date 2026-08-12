@@ -1,6 +1,5 @@
 from common import common
 import json
-import numpy as np
 
 exceptionString = "red"
 
@@ -8,18 +7,19 @@ exceptionString = "red"
 def part1():
     inputValues = common.getInput()
     sum = 0
-    curNumber = ''
-    digits = '0123456789-'
+    curNumber = ""
+    digits = "0123456789-"
     # Go through every character, from right to left
     # If it's a number, we start building the full number
-    # As soon as we hit a non-numeric character, it means the number is done and we can add it to the sum 
+    # As soon as we hit a non-numeric character, it means the number is done and we can add it to the sum
     for char in inputValues[0][::-1]:
         if char in digits:
             curNumber = char + curNumber
         else:
-            sum += int(curNumber if curNumber != '' else 0)
-            curNumber = ''
+            sum += int(curNumber if curNumber != "" else 0)
+            curNumber = ""
     return sum
+
 
 # The objective of this function is to get the sum of each element to add to the total
 # It's a depth first search, we will sum the first element in the param to the end OR until we hit the exception string
@@ -36,16 +36,17 @@ def getSum(element) -> int:
                     sum = 0
                     break
                 sum += getSum(value)
-        # If it's a list its' sum can't be discarded, even if it has the exception string        
+        # If it's a list its' sum can't be discarded, even if it has the exception string
         case list():
             theList = list(element)
             for value in theList:
                 sum += getSum(value)
         case int():
-            sum += int(element)  
+            sum += int(element)
         case _:
             return 0
     return sum
+
 
 def part2():
     inputValues = common.getInput()
@@ -53,7 +54,6 @@ def part2():
     sum = 0
     for element in jsonAll:
         sum += getSum(element)
-                    
     return sum
 
 
