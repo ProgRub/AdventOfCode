@@ -1,5 +1,4 @@
 from common import common
-import threading
 
 totalTeaspoons = 100
 
