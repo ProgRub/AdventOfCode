@@ -1,7 +1,7 @@
 package days
 
-class Day1: IDaySolver{
-    override var parser: IParser = Day1Parser()
+class Day5: IDaySolver{
+    override var parser: IParser = Day5Parser()
     override var problemInput: Collection<String>
 
     constructor(input: List<String>) {
@@ -21,6 +21,6 @@ class Day1: IDaySolver{
     }
 }
 
-class Day1Parser : IParser{
+class Day5Parser : IParser{
 
 }
