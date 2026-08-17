@@ -1,14 +1,15 @@
 import days.Day1
+import days.IDaySolver
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
 
 class Day1Test {
-    val part1Solution = 243
-    val part2Solution = 142
+    val part1Solution = "243"
+    val part2Solution = "142"
     lateinit var inputText: List<String>
-    lateinit var solver: Day1
+    lateinit var solver: IDaySolver
 
     @BeforeEach
     fun setUp() {

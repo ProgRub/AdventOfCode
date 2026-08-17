@@ -14,15 +14,15 @@ class Day1 : IDaySolver {
     constructor(input: List<String>) {
         this.problemInput = this.parser.parseTextToList(input[0], ",")
     }
-    override fun test(): Int {
-        return calculateDistance()
+    override fun test(): String {
+        return calculateDistance().toString()
     }
-    override fun part1(): Int {
-        return calculateDistance()
+    override fun part1(): String {
+        return calculateDistance().toString()
     }
-    override fun part2(): Int {
+    override fun part2(): String {
         val crossoverPoint = findFirstPointVisitedTwice()
-        return calculateDistance(crossoverPoint)
+        return calculateDistance(crossoverPoint).toString()
     }
 
     // Determine next point given the current orientation and point, making the move specified

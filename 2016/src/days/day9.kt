@@ -8,15 +8,15 @@ class Day9: IDaySolver{
         this.problemInput = this.parser.parseTextToList(input[0],",")
     }
 
-    override fun test(): Int {
+    override fun test(): String {
         TODO("Not yet implemented")
     }
 
-    override fun part1(): Int {
+    override fun part1(): String {
         TODO("Not yet implemented")
     }
 
-    override fun part2(): Int {
+    override fun part2(): String {
         TODO("Not yet implemented")
     }
 }
