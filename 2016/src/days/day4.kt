@@ -5,6 +5,10 @@ class Day4 : IDaySolver {
     override var problemInput: List<String>
     private var roomCodes: List<RoomCode>
 
+    // Input consists of lines in the format
+    // aaaaa-bbbb-cc-eeeeee-...-123[abcde]
+    // Where 123 is the room id, in between squared brackets we have the checksum
+    // and the rest before is the room name, where each dash is a space
     constructor(input: List<String>) {
         this.problemInput = input
         this.roomCodes = this.problemInput.map { RoomCode(it) }
@@ -81,7 +85,7 @@ internal class RoomCode {
         return true
     }
 
-    // Decrypts the name
+    // Decrypts the name, to decrypt it we need to shift the letters forward the amount of times specified by the id
     internal fun findRealName(): String {
         var realName = ""
         val lastLetterValue = 'z'.code
@@ -90,6 +94,7 @@ internal class RoomCode {
         val shiftForward = this.id % divider
         for (encrypWord in this.nameSplit) {
             for (letter in encrypWord) {
+                // Find the letter we get by shifting forward the calculated amount of times
                 var code = letter.code + shiftForward
                 // If we've gone past z need to come back around
                 if (code > lastLetterValue) code = code - lastLetterValue + firstLetterCode
