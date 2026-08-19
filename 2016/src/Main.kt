@@ -6,8 +6,8 @@ fun main() {
     val cwd = Paths.get("").toAbsolutePath().toString()
     val inputsFolder = "inputs/"
 
-    val dayProblem = 6
-    val partSolve = 1 // 0 - test; 1 - part 1; 2 - part 2
+    val dayProblem = 8
+    val partSolve = 0 // 0 - test; 1 - part 1; 2 - part 2
     val fileReader = FileReader(cwd.substring(0, cwd.lastIndexOf('/') + 1) + inputsFolder, dayProblem)
     val inputText = fileReader.parseFile()
     lateinit var daySolver: IDaySolver
