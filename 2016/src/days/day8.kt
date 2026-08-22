@@ -10,6 +10,7 @@ class Day8 : IDaySolver {
     private val instructionsList: List<Instruction>
     private val lastRectangleInstructionIndex: Int
 
+    // The input is a list of instructions, each one is a line, to apply to the grid
     constructor(input: List<String>) {
         this.problemInput = input
         screenGrid = mutableListOf()

@@ -6,7 +6,7 @@ fun main() {
     val cwd = Paths.get("").toAbsolutePath().toString()
     val inputsFolder = "inputs/"
 
-    val dayProblem = 8
+    val dayProblem = 9
     val partSolve = 2 // 0 - test; 1 - part 1; 2 - part 2
     val fileReader = FileReader(cwd.substring(0, cwd.lastIndexOf('/') + 1) + inputsFolder, dayProblem)
     val inputText = fileReader.parseFile()
