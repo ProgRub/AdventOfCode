@@ -109,4 +109,4 @@ class Day9 : IDaySolver {
     }
 }
 
-class Day9Parser : IParser
+private class Day9Parser : IParser

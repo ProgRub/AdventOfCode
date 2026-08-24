@@ -63,7 +63,7 @@ class Day5 : IDaySolver {
         val md = MessageDigest.getInstance("MD5")
         val roomId = this.problemInput[0]
         val zeroSequence = "0".repeat(this.startingZerosLength)
-        var password = " ".repeat(passwordLength).toCharArray()
+        val password = " ".repeat(passwordLength).toCharArray()
         var index = 0
         var hashTarget: String
         var hashedValue: String
@@ -86,4 +86,4 @@ class Day5 : IDaySolver {
     }
 }
 
-class Day5Parser : IParser
+private class Day5Parser : IParser

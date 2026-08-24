@@ -58,7 +58,7 @@ class Day8 : IDaySolver {
 
     // Goes through the list of instructions, applying them to find the final state of the display
     private fun findFinalDisplay() {
-        for ((index, instruction) in instructionsList.withIndex()) {
+        for (instruction in instructionsList) {
             // THe condition below is an optimization only valid for part 1, for part 2 all instructions need to run
             // If we're past the last rectangle instruction then no more pixels are going to get turned on
             // if (index > this.lastRectangleInstructionIndex) return
@@ -110,8 +110,8 @@ class Day8 : IDaySolver {
     }
 }
 
-class Day8Parser : IParser {
-    internal fun parseInstruction(text: String): Instruction =
+private class Day8Parser : IParser {
+    fun parseInstruction(text: String): Instruction =
         when {
             // Example: rect 3x2
             text.startsWith("rect") -> {
@@ -143,7 +143,6 @@ class Day8Parser : IParser {
         }
 }
 
-internal data class Instruction(val type: InstructionType, val target: Int, val offset: Int) {
-}
+private data class Instruction(val type: InstructionType, val target: Int, val offset: Int)
 
-internal enum class InstructionType { RECTANGLE, ROTATE_ROW, ROTATE_COLUMN }
+private enum class InstructionType { RECTANGLE, ROTATE_ROW, ROTATE_COLUMN }

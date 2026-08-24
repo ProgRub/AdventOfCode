@@ -91,7 +91,7 @@ class Day10 : IDaySolver {
             moves.first {
                 it.startsWith("bot " + givingBot.id + " ")
             }
-        } catch (e: NoSuchElementException) {
+        } catch (_: NoSuchElementException) {
             return 0 // No more moves to make for the bot, exit recursion
         }
         moves -= nextMove
@@ -146,16 +146,16 @@ class Day10 : IDaySolver {
 
 class Day10Parser : IParser
 
-internal class Bot(val id: Int, val values: MutableList<Int>) {
+private class Bot(val id: Int, val values: MutableList<Int>) {
     // Bot gets a value from a 'value x goes to bot' move
-    internal fun receiveValue(value: Int) {
+    fun receiveValue(value: Int) {
         // The bot always needs to have one space available, that space being the first position, filled with 0
         values[0] = value
         reorderValues()
     }
 
     // Bot gives a value to another bot
-    internal fun giveValue(value: Int, receivingBot: Bot) {
+    fun giveValue(value: Int, receivingBot: Bot) {
         val indexOfValue = values.indexOf(value)
         receivingBot.receiveValue(value)
         values[indexOfValue] = 0
@@ -163,7 +163,7 @@ internal class Bot(val id: Int, val values: MutableList<Int>) {
     }
 
     // Bot gives a value to an output stack
-    internal fun giveValue(value: Int, output: Stack<Int>?) {
+    fun giveValue(value: Int, output: Stack<Int>?) {
         val indexOfValue = values.indexOf(value)
         output?.add(value)
         values[indexOfValue] = 0
@@ -171,7 +171,7 @@ internal class Bot(val id: Int, val values: MutableList<Int>) {
     }
 
     // Order list of values of the bot so lowest is in first position and highest in second position
-    private fun reorderValues() {
+    fun reorderValues() {
         if (values[0] > values[1]) {
             val aux = values[1]
             values[1] = values[0]
@@ -180,5 +180,5 @@ internal class Bot(val id: Int, val values: MutableList<Int>) {
     }
 
     // Check if this is the bot that holds the expected pair of values
-    internal fun checkValues(targetValues: List<Int>): Boolean = values == targetValues
+    fun checkValues(targetValues: List<Int>): Boolean = values == targetValues
 }

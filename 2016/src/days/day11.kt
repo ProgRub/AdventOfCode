@@ -57,7 +57,7 @@ class Day11 : IDaySolver {
             println("Floor $number: ${floor.joinToString(";")}")
             number++
         }
-        println("${"-".repeat(50)}")
+        println("-".repeat(50))
     }
 
     // Check if the floor is valid
@@ -141,14 +141,14 @@ class Day11 : IDaySolver {
 
 }
 
-class Day11Parser : IParser
+private class Day11Parser : IParser
 
-internal class RadiationObject {
+private class RadiationObject {
     val type: ObjectType
     val element: String
 
     constructor(text: String) {
-        val strippedText = text.trim { it -> it == ',' || it == '.' }
+        val strippedText = text.trim { it == ',' || it == '.' }
         val split = strippedText.split(' ')
         this.type = when (split[1]) {
             "microchip" -> ObjectType.MICROCHIP
@@ -176,6 +176,6 @@ internal class RadiationObject {
     }
 }
 
-internal enum class ObjectType { MICROCHIP, GENERATOR }
+private enum class ObjectType { MICROCHIP, GENERATOR }
 
-internal data class State(val elevator: Int, val floors: MutableList<MutableList<RadiationObject>>)
+private data class State(val elevator: Int, val floors: MutableList<MutableList<RadiationObject>>)

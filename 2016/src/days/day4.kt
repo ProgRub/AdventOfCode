@@ -106,4 +106,4 @@ internal class RoomCode {
     }
 }
 
-class Day4Parser : IParser
+private class Day4Parser : IParser

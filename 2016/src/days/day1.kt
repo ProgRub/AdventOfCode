@@ -148,6 +148,6 @@ class Day1 : IDaySolver {
     }
 }
 
-class Day1Parser : IParser
+private class Day1Parser : IParser
 
-enum class Orientation { NORTH, SOUTH, EAST, WEST }
+private enum class Orientation { NORTH, SOUTH, EAST, WEST }

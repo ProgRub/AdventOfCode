@@ -52,4 +52,4 @@ class Day6 : IDaySolver {
     }
 }
 
-class Day6Parser : IParser
+private class Day6Parser : IParser

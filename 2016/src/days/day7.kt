@@ -100,4 +100,4 @@ class Day7 : IDaySolver {
     }
 }
 
-class Day7Parser : IParser
+private class Day7Parser : IParser

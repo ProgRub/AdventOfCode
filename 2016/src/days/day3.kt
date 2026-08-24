@@ -92,7 +92,7 @@ class Day3 : IDaySolver {
     }
 }
 
-class Day3Parser : IParser {
+private class Day3Parser : IParser {
     override fun parseTextToGrid(lines: List<String>, separator: String): List<List<String>> {
         if (separator == "\\s+") return lines.map { it.trim().split("\\s+".toRegex()) } // split by whitespaces
         return super.parseTextToGrid(lines, separator)
