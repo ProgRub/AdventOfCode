@@ -24,13 +24,13 @@ open class DayTester {
 
     @Test
     @DisplayName("Part 1 test")
-    fun part1test(){
+    open fun part1test(){
         Assertions.assertEquals(part1Solution, solver.part1())
     }
 
     @Test
     @DisplayName("Part 2 test")
-    fun part2test(){
+    open fun part2test(){
         Assertions.assertEquals(part2Solution, solver.part2())
     }
 }
