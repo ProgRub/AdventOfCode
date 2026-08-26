@@ -8,6 +8,7 @@ class Day14 : IDaySolver {
     private val targetKey = 64
     private val tripletKeyRange = 1000
     private val keyStretchingAmount = 2016
+    private val messageDigest = MessageDigest.getInstance("MD5")
 
     // Problem input is just one line with the salt value (cryptography)
     constructor(input: List<String>) {
@@ -28,13 +29,16 @@ class Day14 : IDaySolver {
         return findNKeyIndex(targetKey, keyStretchingAmount).toString()
     }
 
+    // This function finds the index that, when hashed with the salt, is the Nth key, for example,
+    // A hash is a key when it has a triplet sequence, three of the same character, and in the next 1000 hashes
+    // There is one that has a 5 character sequence of that same character; this hash with a 5 long sequence
+    // Can make multiple previous hashes key's
     private fun findNKeyIndex(targetNKey: Int, additionalHashings: Int = 0): Int {
-        val md = MessageDigest.getInstance("MD5")
         val salt = this.problemInput[0]
         var keysFound = 0
         var index = 0
         var hashTarget: String
-        var hashedValue = ""
+        var hashedValue: String
         // Since we don't find the keys in sequence, upon finding the Nth key we define what is the max index
         // to find an earlier key that would be the Nth key
         var earliestKeyCutoff = Int.MAX_VALUE
@@ -46,16 +50,8 @@ class Day14 : IDaySolver {
         // saving the indexes of the hashes it's key to
         val indexesKeys = sortedSetOf<Int>()
         while (keysFound < targetNKey || index < earliestKeyCutoff) {
-            var stretchingCounter = 0
             hashTarget = salt + index
-            // If key stretching is asked n amount of times, we only want the n hash
-            // First we find the hash for salt and the index, then we find the hash of that hash, and so on
-            // Until we've done this the specified amount of times
-            while (stretchingCounter < additionalHashings + 1) {
-                hashedValue = md.digest(hashTarget.toByteArray()).toHexString()
-                stretchingCounter++
-                hashTarget = hashedValue
-            }
+            hashedValue = keyStretching(hashTarget, additionalHashings + 1)
             // If we've hit the max number of hashes to check for a triplet, remove it from the map
             if (tripletsToCheck.containsKey(index)) {
                 tripletsToCheck.remove(index)
@@ -92,6 +88,21 @@ class Day14 : IDaySolver {
         }
         // The array of indexes of keys is already sorted
         return indexesKeys.elementAt(targetNKey - 1)
+    }
+
+    // Apply key stretching, aka
+    // First we find the hash for the initial value, then we find the hash of that hash, and so on
+    // Until we've done this the specified amount of times
+    private fun keyStretching(initialHash: String, additionalHashings: Int): String {
+        var stretchingCounter = 0
+        var hashTarget = initialHash
+        // If key stretching is asked n amount of times, we only want the n hash
+        while (stretchingCounter < additionalHashings + 1) {
+            val hashedValue = messageDigest.digest(hashTarget.toByteArray()).toHexString()
+            stretchingCounter++
+            hashTarget = hashedValue
+        }
+        return hashTarget
     }
 
     // Finds the first sequence of three same characters (ex. 'aaa') aka triplet. Returns blank if there is none
