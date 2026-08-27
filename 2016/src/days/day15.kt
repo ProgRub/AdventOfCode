@@ -37,7 +37,7 @@ class Day15 : IDaySolver {
     }
 }
 
-class Day15Parser : IParser
+private class Day15Parser : IParser
 
 private class Disc {
     private val discNumber: Int
