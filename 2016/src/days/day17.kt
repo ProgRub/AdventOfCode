@@ -110,6 +110,4 @@ class Day17 : IDaySolver {
     }
 }
 
-class Day17Parser : IParser {
-
-}
+private class Day17Parser : IParser

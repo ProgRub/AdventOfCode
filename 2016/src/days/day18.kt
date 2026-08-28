@@ -27,12 +27,13 @@ class Day18 : IDaySolver {
         val grid = buildTileGrid(400000, problemInput[0])
         return grid.sumOf { it.count { it == safeChar } }.toString()
     }
+
     // Build grid of tiles, making the amount of rows specified based on the initial row
-    private fun buildTileGrid(numberRows:Int,initialRow:String):List<String>{
+    private fun buildTileGrid(numberRows: Int, initialRow: String): List<String> {
         val grid = mutableListOf(initialRow)
         // We already have the first row
-        repeat(numberRows-1) {
-            grid+=makeNextTileRow(grid[it])
+        repeat(numberRows - 1) {
+            grid += makeNextTileRow(grid[it])
         }
         return grid
     }
@@ -61,6 +62,4 @@ class Day18 : IDaySolver {
     }
 }
 
-class Day18Parser : IParser {
-
-}
+private class Day18Parser : IParser
