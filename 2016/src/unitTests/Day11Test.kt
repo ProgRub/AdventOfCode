@@ -4,7 +4,7 @@ import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
 
-class Day11Test : DayTester() {
+private class Day11Test : DayTester() {
 
     @BeforeEach
     override fun setUp() {

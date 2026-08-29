@@ -1,7 +1,7 @@
 import days.Day16
 import org.junit.jupiter.api.BeforeEach
 
-class Day16Test : DayTester() {
+private class Day16Test : DayTester() {
 
     @BeforeEach
     override fun setUp() {
