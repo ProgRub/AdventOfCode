@@ -72,7 +72,8 @@ class Day13 : IDaySolver {
             val possiblePoints = getPossiblePoints(startingPoint)
             for (point in possiblePoints) {
                 visitedPoints.addAll(
-                    findDistinctPoints(point, maxSteps, visitedPoints))
+                    findDistinctPoints(point, maxSteps, visitedPoints)
+                )
                 visitedPoints.add(point)
             }
         }
