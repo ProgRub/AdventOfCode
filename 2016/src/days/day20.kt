@@ -37,7 +37,7 @@ class Day20 : IDaySolver {
             // If there's a hole between the ranges then we have the lowest possible IP
             if (range.low - 1 > highestIpBlacklisted) return highestIpBlacklisted + 1
             // Otherwise keep checking, ranges can overlap so we only care about the highest IP blacklisted
-            highestIpBlacklisted = max(highestIpBlacklisted,range.high)
+            highestIpBlacklisted = max(highestIpBlacklisted, range.high)
         }
         return 0
     }

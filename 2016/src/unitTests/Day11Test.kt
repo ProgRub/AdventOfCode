@@ -30,10 +30,11 @@ private class Day11Test : DayTester() {
     @Test
     @DisplayName("Part 2 test")
     override fun part2test() {
-        val text = "The first floor contains a promethium generator, promethium-compatible microchip, elerium generator, elerium-compatible microchip, dilithium generator and a dilithium-compatible microchip.\n" +
-                "The second floor contains a cobalt generator, a curium generator, a ruthenium generator, and a plutonium generator.\n" +
-                "The third floor contains a cobalt-compatible microchip, a curium-compatible microchip, a ruthenium-compatible microchip, and a plutonium-compatible microchip.\n" +
-                "The fourth floor contains nothing relevant."
+        val text =
+            "The first floor contains a promethium generator, promethium-compatible microchip, elerium generator, elerium-compatible microchip, dilithium generator and a dilithium-compatible microchip.\n" +
+                    "The second floor contains a cobalt generator, a curium generator, a ruthenium generator, and a plutonium generator.\n" +
+                    "The third floor contains a cobalt-compatible microchip, a curium-compatible microchip, a ruthenium-compatible microchip, and a plutonium-compatible microchip.\n" +
+                    "The fourth floor contains nothing relevant."
         inputText = text.split("\n")
         solver = Day11(inputText)
         Assertions.assertEquals(part2Solution, solver.part2())

@@ -19,6 +19,7 @@ class Day15 : IDaySolver {
     override fun part1(): String {
         return findPerfectTime().toString()
     }
+
     // Difference from part 1 is there is another disc at the bottom, with the configuration specified
     override fun part2(): String {
         this.discs.add(Disc("Disc #7 has 11 positions; at time=0, it is at position 0."))

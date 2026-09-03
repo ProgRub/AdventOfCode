@@ -160,7 +160,7 @@ open class AssembunnyReader {
         }
     }
 
-    // SGets the value for the register specified. If register doesn't exist throws NoSuchElementException
+    // Gets the value for the register specified. If register doesn't exist throws NoSuchElementException
     fun getRegisterValue(registerIdentifier: String): Int = getRegister(registerIdentifier).intValue
 
     // Sets the value for the register specified. If register doesn't exist throws NoSuchElementException

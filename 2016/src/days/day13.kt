@@ -3,7 +3,7 @@ package days
 import java.util.*
 import kotlin.math.abs
 
-class Day13 : IDaySolver {
+class Day13 : IDaySolver, IAStarAlgorithm {
     override var parser: IParser = Day13Parser()
     override var problemInput: List<String>
     private val startingPoint = Pair(1, 1)
@@ -82,7 +82,7 @@ class Day13 : IDaySolver {
 
     // An A* algorithm to find the shortest path possible from the starting point to the target point
     // Dynamically checking if the next point is a wall or not
-    private fun findShortestPathLength(startingPoint: Pair<Int, Int>, destinationPoint: Pair<Int, Int>): Int {
+    override fun findShortestPathLength(startingPoint: Pair<Int, Int>, destinationPoint: Pair<Int, Int>): Int {
         var currentPoint = startingPoint
         val visitedPoints = mutableSetOf<Pair<Int, Int>>()
         var costSoFar = 0
@@ -114,7 +114,7 @@ class Day13 : IDaySolver {
     }
 
     // Get a list of possible points to move to form the given point, can't move diagonally
-    private fun getPossiblePoints(point: Pair<Int, Int>): List<Pair<Int, Int>> {
+    override fun getPossiblePoints(point: Pair<Int, Int>): List<Pair<Int, Int>> {
         val possiblePoints = mutableListOf<Pair<Int, Int>>()
         val (x, y) = point
         // Can't go into negative coordinates or into a wall
@@ -126,7 +126,7 @@ class Day13 : IDaySolver {
     }
 
     // Determine what point to go to for the shortest path, returning it and the cost to make the move
-    private fun chooseNextPoint(
+    override fun chooseNextPoint(
         possiblePoints: List<Pair<Int, Int>>,
         pathCost: Int,
         destination: Pair<Int, Int>

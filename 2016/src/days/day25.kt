@@ -1,11 +1,11 @@
 package days
 
-class Day25: IDaySolver{
+class Day25 : IDaySolver {
     override var parser: IParser = Day25Parser()
     override var problemInput: List<String>
 
     constructor(input: List<String>) {
-        this.problemInput = this.parser.parseTextToList(input[0],",")
+        this.problemInput = this.parser.parseTextToList(input[0], ",")
     }
 
     override fun test(): String {
@@ -21,6 +21,6 @@ class Day25: IDaySolver{
     }
 }
 
-class Day25Parser : IParser{
+class Day25Parser : IParser {
 
 }

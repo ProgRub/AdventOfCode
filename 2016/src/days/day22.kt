@@ -2,7 +2,7 @@ package days
 
 import kotlin.math.abs
 
-class Day22 : IDaySolver {
+class Day22 : IDaySolver, IAStarAlgorithm {
     override var parser: IParser = Day22Parser()
     override var problemInput: List<String>
     private val nodes: List<Node>
@@ -79,13 +79,13 @@ class Day22 : IDaySolver {
             else -> wallCrackPointRight
         }
         // Add the steps needed to take the empty node to the crack in the wall
-        steps += findShortestPathLength(emptyNode.x to emptyNode.y, wallCrackPoint, nodes)
+        steps += findShortestPathLength(emptyNode.x to emptyNode.y, wallCrackPoint)
         emptyNode = nodes[wallCrackPoint.component1() * colSize + wallCrackPoint.component2()] // Update empty node
         // The target for the empty node is to be in the same row as the data node, but one column closer
         val targetPosition = dataNode.x - 1 to dataNode.y
         // Add the amount of steps needed to get the empty node to the same row as the data node
         val stepsTaken =
-            findShortestPathLength(emptyNode.x to emptyNode.y, targetPosition, nodes)
+            findShortestPathLength(emptyNode.x to emptyNode.y, targetPosition)
         steps += stepsTaken + 1 // +1 for the step of moving the data to the empty node
         // Now we just need the add the amount of steps in a cycle (5) times the amount of cycles (distance to (0,0))
         steps += 5 * (targetPosition.component1() - originNode.x)
@@ -95,17 +95,16 @@ class Day22 : IDaySolver {
     // An A* algorithm to find the shortest path possible from the starting point to the target point
     // A move is only viable if the data between the nodes can be moved
     // Returns the amount of steps taken
-    private fun findShortestPathLength(
+    override fun findShortestPathLength(
         startingPoint: Pair<Int, Int>,
-        destinationPoint: Pair<Int, Int>,
-        nodes: List<Node>
+        destinationPoint: Pair<Int, Int>
     ): Int {
         var currentPoint = startingPoint
         var currentNode = nodes[currentPoint.component1() * colSize + currentPoint.component2()]
         var steps = 0
         while (currentPoint != destinationPoint) {
-            val possiblePoints = getPossiblePoints(currentNode, nodes)
-            val nextPoint = chooseNextPoint(possiblePoints, destinationPoint)
+            val possiblePoints = getPossiblePoints(currentPoint)
+            val (nextPoint, _) = chooseNextPoint(possiblePoints, 0, destinationPoint)
             val nextNode = nodes[nextPoint.component1() * colSize + nextPoint.component2()]
             // Move the data between the nodes
             currentNode.used = nextNode.used
@@ -121,9 +120,10 @@ class Day22 : IDaySolver {
     }
 
     // Get a list of possible points to move to form the given point, can't move diagonally
-    private fun getPossiblePoints(currentNode: Node, nodes: List<Node>): List<Pair<Int, Int>> {
+    override fun getPossiblePoints(point: Pair<Int, Int>): List<Pair<Int, Int>> {
         val possiblePoints = mutableListOf<Pair<Int, Int>>()
-        val (x, y) = currentNode.x to currentNode.y
+        val (x, y) = point
+        val currentNode = nodes[x * colSize + y]
         // Can't go outside the grid
         if (x - 1 >= 0) possiblePoints.add(x - 1 to y)
         if (y - 1 >= 0) possiblePoints.add(x to y - 1)
@@ -141,10 +141,11 @@ class Day22 : IDaySolver {
     }
 
     // Determine what point to go to for the shortest path, returning it
-    private fun chooseNextPoint(
+    override fun chooseNextPoint(
         possiblePoints: List<Pair<Int, Int>>,
+        pathCost: Int,
         destination: Pair<Int, Int>
-    ): Pair<Int, Int> {
+    ): Pair<Pair<Int, Int>, Int> {
         var bestPoint = possiblePoints[0]
         var costBestMove =
             abs(destination.component1() - bestPoint.component1()) +
@@ -161,7 +162,7 @@ class Day22 : IDaySolver {
             if (moveCost == costBestMove)
                 bestPoint = if (point.component1() < bestPoint.component1()) point else bestPoint
         }
-        return bestPoint
+        return bestPoint to costBestMove
     }
 }
 

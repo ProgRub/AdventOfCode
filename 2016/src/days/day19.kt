@@ -17,7 +17,7 @@ class Day19 : IDaySolver {
         val numberElves = this.problemInput[0].toInt()
         var pointerLast = this.elves
         while (count < numberElves) {
-            if (count <= numberElves/2) leftSideCircle.add(count)
+            if (count <= numberElves / 2) leftSideCircle.add(count)
             else rightSideCircle.addFirst(count)
             count++
             pointerLast.next = LinkedElf(count, null)
@@ -59,8 +59,8 @@ class Day19 : IDaySolver {
     // If equal, take from the right one
     // The queues are built from the starting point to their respective direction, if we think of a clock
     // in the left side there's 1, 2, 3 and on the right side, going from 12, there's 11, 10, 9
-    private fun findLastElfRemoveAcross():Int{
-        while(leftSideCircle.size + rightSideCircle.size > 1) {
+    private fun findLastElfRemoveAcross(): Int {
+        while (leftSideCircle.size + rightSideCircle.size > 1) {
             if (leftSideCircle.size > rightSideCircle.size) leftSideCircle.removeLast()
             else rightSideCircle.removeLast()
             // Rearrange the circle, the first element from the left now becomes the first element in the right side

@@ -27,18 +27,18 @@ class Day23 : IDaySolver {
     // It just takes too long with 12 as the value
     override fun part2(): String {
         reader.setRegisterValue("a", 12)
-        return (factorial(reader.getRegisterValue("a"))+85*91).toString()
+        return (factorial(reader.getRegisterValue("a")) + 85 * 91).toString()
     }
 
-    private fun factorial (number:Int):Int{
+    private fun factorial(number: Int): Int {
         if (number == 1) return 1
-        return number*factorial(number - 1)
+        return number * factorial(number - 1)
     }
 }
 
 private class Day23Parser : IParser
 
-class AssembunnyReaderUpgraded : AssembunnyReader {
+private class AssembunnyReaderUpgraded : AssembunnyReader {
     constructor(instructions: List<String>) : super(instructions) {
         // For this day we need a special kind of register so we convert the registers to the child class
         this.registers = this.registers.map {
@@ -49,7 +49,7 @@ class AssembunnyReaderUpgraded : AssembunnyReader {
     override fun executeInstruction(instructionCode: String, arguments: List<String>) {
         when (instructionCode) {
             "tgl" -> toggle(arguments.first())
-            "mul" -> multiply(arguments.first(),arguments.last())
+            "mul" -> multiply(arguments.first(), arguments.last())
             else -> super.executeInstruction(instructionCode, arguments)
         }
     }
@@ -81,7 +81,7 @@ class AssembunnyReaderUpgraded : AssembunnyReader {
 
     // Multiply the register by the value
     // Format: mul b c; multiplies registers b and c, storing the result in register b
-    private fun multiply(regIdentifier: String, multiplierValue:String){
+    private fun multiply(regIdentifier: String, multiplierValue: String) {
         // Check if the first argument is a register
         try {
             val register = getRegister(regIdentifier) as BunnyRegister
@@ -100,11 +100,11 @@ class AssembunnyReaderUpgraded : AssembunnyReader {
     }
 }
 
-class BunnyRegister : Register {
+private class BunnyRegister : Register {
     constructor(identifier: Char, intValue: Int) : super(identifier, intValue)
 
     // Multiplies register by value passed
-    fun multiply(multiplier:Int) {
+    fun multiply(multiplier: Int) {
         this.intValue *= multiplier
     }
 }

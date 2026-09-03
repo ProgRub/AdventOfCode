@@ -82,7 +82,7 @@ class Day5 : IDaySolver {
             // add the character after the password position to the specified position in the password
             password[passwordPosition] = hashedValue[this.startingZerosLength + 1]
         }
-        return password.joinToString("" ) // convert the char array to string
+        return password.joinToString("") // convert the char array to string
     }
 }
 

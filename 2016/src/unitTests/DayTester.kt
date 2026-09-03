@@ -8,8 +8,8 @@ import java.nio.file.Paths
 import kotlin.properties.Delegates
 
 open class DayTester {
-    lateinit var  part1Solution: String
-    lateinit var  part2Solution: String
+    lateinit var part1Solution: String
+    lateinit var part2Solution: String
     var testDay by Delegates.notNull<Int>()
     lateinit var inputText: List<String>
     lateinit var solver: IDaySolver
@@ -24,13 +24,13 @@ open class DayTester {
 
     @Test
     @DisplayName("Part 1 test")
-    open fun part1test(){
+    open fun part1test() {
         Assertions.assertEquals(part1Solution, solver.part1())
     }
 
     @Test
     @DisplayName("Part 2 test")
-    open fun part2test(){
+    open fun part2test() {
         Assertions.assertEquals(part2Solution, solver.part2())
     }
 }

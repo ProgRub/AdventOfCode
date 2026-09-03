@@ -14,12 +14,15 @@ class Day1 : IDaySolver {
     constructor(input: List<String>) {
         this.problemInput = this.parser.parseTextToList(input[0], ",")
     }
+
     override fun test(): String {
         return calculateDistance().toString()
     }
+
     override fun part1(): String {
         return calculateDistance().toString()
     }
+
     override fun part2(): String {
         val crossoverPoint = findFirstPointVisitedTwice()
         return calculateDistance(crossoverPoint).toString()
@@ -54,8 +57,8 @@ class Day1 : IDaySolver {
         var currentPoint = listOf(xDistance, yDistance)
         var nextPoint: List<Int>
         for (move in problemInput) {
-            nextPoint = nextPoint(currentPoint, orientation,move)
-            orientation = findNextOrientation(orientation,move[0])
+            nextPoint = nextPoint(currentPoint, orientation, move)
+            orientation = findNextOrientation(orientation, move[0])
             xDistance += currentPoint[0] - nextPoint[0]
             yDistance += currentPoint[1] - nextPoint[1]
             currentPoint = nextPoint
@@ -70,8 +73,8 @@ class Day1 : IDaySolver {
         var currentPoint = listOf(0, 0)
         var nextPoint: List<Int>
         for (move in problemInput) {
-            nextPoint = nextPoint(currentPoint, orientation,move)
-            orientation = findNextOrientation(orientation,move[0])
+            nextPoint = nextPoint(currentPoint, orientation, move)
+            orientation = findNextOrientation(orientation, move[0])
             points.add(nextPoint)
             // Check if crossover has happened
             val crossoverPoint = crossoverPoint(points)

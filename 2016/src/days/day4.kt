@@ -89,7 +89,7 @@ internal class RoomCode {
     internal fun findRealName(): String {
         var realName = ""
         val lastLetterValue = 'z'.code
-        val firstLetterCode = 'a'.code -1 // Remove one so we consider a
+        val firstLetterCode = 'a'.code - 1 // Remove one so we consider a
         val divider = lastLetterValue - firstLetterCode // number of letters in alphabet
         val shiftForward = this.id % divider
         for (encrypWord in this.nameSplit) {
